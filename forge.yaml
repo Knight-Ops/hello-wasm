@@ -1,0 +1,7 @@
+tools:
+  - name: hello
+    description: "A simple Wasm tool that greets you."
+    entrypoint: greet
+  - name: shout
+    description: "A Wasm tool that shouts your message in uppercase."
+    entrypoint: shout
