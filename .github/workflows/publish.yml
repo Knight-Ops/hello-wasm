@@ -54,8 +54,13 @@ jobs:
           # The binary name from Cargo.toml is hello_wasm
           WASM_PATH=target/wasm32-unknown-unknown/release/hello_wasm.wasm
           
+          # Convert image name to lowercase for OCI compliance
+          IMAGE_NAME_LOWER=$(echo "${{ env.IMAGE_NAME }}" | tr '[:upper:]' '[:lower:]')
+          
+          # Install toml parser (just in case, though we are using forge.yaml)
+          pip install toml --user || true
+          
           # Get tools as JSON array using yq
-          # We try Go yq syntax first, then fallback to Python yq syntax
           TOOLS_JSON=$(yq -o json '.tools' forge.yaml 2>/dev/null || yq '.tools' forge.yaml)
           
           # Iterate over tools
@@ -72,7 +77,7 @@ jobs:
               REF=${base_tag##*:}
               
               # Construct final tag: registry/repo:name-ref
-              FINAL_TAG="${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${NAME}-${REF}"
+              FINAL_TAG="${{ env.REGISTRY }}/${IMAGE_NAME_LOWER}:${NAME}-${REF}"
               
               echo "Pushing tool $NAME to $FINAL_TAG..."
               oras push "$FINAL_TAG" \
