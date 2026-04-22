@@ -1,5 +1,5 @@
 {
   "tools": [
-    "ghcr.io/knight-ops/hello-wasm:latest"
+    "ghcr.io/knight-ops/hello-wasm:main"
   ]
 }
