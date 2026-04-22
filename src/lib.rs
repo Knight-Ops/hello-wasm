@@ -1,11 +1,26 @@
 use extism_pdk::*;
+use wasm_forge_pdk::forge_types;
 
-#[plugin_fn]
-pub fn greet(name: String) -> FnResult<String> {
-    Ok(format!("Hello, {} from Wasm!", name))
+forge_types! {
+    pub struct GreetArgs {
+        /// The name of the person to greet.
+        pub name: String,
+    }
+
+    pub struct ShoutArgs {
+        /// The message to convert to uppercase.
+        pub message: String,
+    }
 }
 
+/// A simple Wasm tool that greets you.
 #[plugin_fn]
-pub fn shout(input: String) -> FnResult<String> {
-    Ok(input.to_uppercase())
+pub fn greet(Json(args): Json<GreetArgs>) -> FnResult<String> {
+    Ok(format!("Hello, {} from Wasm!", args.name))
+}
+
+/// A Wasm tool that shouts your message in uppercase.
+#[plugin_fn]
+pub fn shout(Json(args): Json<ShoutArgs>) -> FnResult<String> {
+    Ok(args.message.to_uppercase())
 }

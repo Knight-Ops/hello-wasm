@@ -1,7 +1,23 @@
 tools:
-  - name: hello
-    description: "A simple Wasm tool that greets you."
-    entrypoint: greet
-  - name: shout
-    description: "A Wasm tool that shouts your message in uppercase."
-    entrypoint: shout
+- name: greet
+  description: A simple Wasm tool that greets you.
+  entrypoint: greet
+  input_schema:
+    properties:
+      name:
+        description: The name of the person to greet.
+        type: string
+    required:
+    - name
+    type: object
+- name: shout
+  description: A Wasm tool that shouts your message in uppercase.
+  entrypoint: shout
+  input_schema:
+    properties:
+      message:
+        description: The message to convert to uppercase.
+        type: string
+    required:
+    - message
+    type: object
