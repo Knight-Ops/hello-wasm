@@ -28,7 +28,7 @@ jobs:
 
       - name: Build Wasm
         env:
-          CARGO_REGISTRIES_BASILISKLABS_INDEX: "sparse+https://kellnr.basilisklabs.com/api/v1/crates"
+          CARGO_REGISTRIES_BASILISKLABS_INDEX: "sparse+https://kellnr.basilisklabs.com/api/v1/crates/"
         run: cargo build --target wasm32-unknown-unknown --release
 
       - name: Setup ORAS
