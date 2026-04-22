@@ -1,3 +1,6 @@
 {
-  "tools": ["ghcr.io/knight-ops/hello-wasm:main"]
+  "tools": [
+    "ghcr.io/knight-ops/hello-wasm:latest/hello",
+    "ghcr.io/knight-ops/hello-wasm:latest/shout"
+  ]
 }
