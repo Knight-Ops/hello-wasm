@@ -1,4 +1,15 @@
 tools:
+- name: judge
+  description: ''
+  entrypoint: judge
+  input_schema:
+    properties:
+      allowed:
+        description: Is judgement allowed
+        type: boolean
+    required:
+    - allowed
+    type: object
 - name: greet
   description: A simple Wasm tool that greets you.
   entrypoint: greet

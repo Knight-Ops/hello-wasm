@@ -473,9 +473,9 @@ dependencies = [
 
 [[package]]
 name = "wasm-forge-pdk"
-version = "0.1.0"
+version = "0.1.1"
 source = "sparse+https://kellnr.basilisklabs.com/api/v1/crates/"
-checksum = "80e3a22b8a5a83e7483b2fe2a378f6ed6851595794e64220baabef4afb7b06bc"
+checksum = "5af11ab1a47140542d75f14ed54647e25e5eacca218cc04a83128d70df86d2a6"
 dependencies = [
  "schemars",
  "serde",
