@@ -1,0 +1,7 @@
+[
+  {
+    "name": "Knight-Ops",
+    "index_url": "https://raw.githubusercontent.com/Knight-Ops/hello-wasm/main/forge-index.json",
+    "auth_strategy": "None"
+  }
+]
